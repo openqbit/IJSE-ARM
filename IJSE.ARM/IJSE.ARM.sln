@@ -7,6 +7,18 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0 Common", "0 Common", "{C1
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IJSE.ARM.Common.Models", "IJSE.ARM.Common.Models\IJSE.ARM.Common.Models.csproj", "{BFE6FA88-44CE-43BA-BC70-4665D14D0275}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 Presentation", "1 Presentation", "{8CDBB2E2-D8B4-412F-BA52-EAB90AB5675F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 Service", "2 Service", "{763CB877-06E4-4015-87A1-A83A1EA02652}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 BLL", "3 BLL", "{40AF6E4E-9E40-462A-BFC9-7958D93362F6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 DAL", "4 DAL", "{5ED4500F-C7C1-481A-BC83-6325E4C4432D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5 Test", "5 Test", "{F8BBC396-852A-4E2A-84E5-22D90500AF2A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IJSE.ARM.DataAccess.DAL", "IJSE.ARM.DataAccess.DAL\IJSE.ARM.DataAccess.DAL.csproj", "{07ABFB65-F866-412E-AC35-211318A76266}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,11 +29,16 @@ Global
 		{BFE6FA88-44CE-43BA-BC70-4665D14D0275}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BFE6FA88-44CE-43BA-BC70-4665D14D0275}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BFE6FA88-44CE-43BA-BC70-4665D14D0275}.Release|Any CPU.Build.0 = Release|Any CPU
+		{07ABFB65-F866-412E-AC35-211318A76266}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{07ABFB65-F866-412E-AC35-211318A76266}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{07ABFB65-F866-412E-AC35-211318A76266}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{07ABFB65-F866-412E-AC35-211318A76266}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{BFE6FA88-44CE-43BA-BC70-4665D14D0275} = {C1254DCB-BA4D-4717-8505-DDB91BE20172}
+		{07ABFB65-F866-412E-AC35-211318A76266} = {5ED4500F-C7C1-481A-BC83-6325E4C4432D}
 	EndGlobalSection
 EndGlobal

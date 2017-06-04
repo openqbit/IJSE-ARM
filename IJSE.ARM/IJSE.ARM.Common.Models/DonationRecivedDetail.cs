@@ -9,7 +9,7 @@ namespace IJSE.ARM.Common.Models
     public class DonationRecivedDetail
     {
         public int Id { get; set; }
-        public int DonationArrivalId { get; set; }
+        public int DonationRecivedId { get; set; }
         public int AidItemId { get; set; }
         public double Qty { get; set; }
         public string ImagePathRef { get; set; }
