@@ -8,18 +8,12 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace IJSE.ARM.Common.Models
 {
-    public abstract class Item
+    public class ItemSubCategoryII
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public string Unit { get; set; }
 
-        [ForeignKey("ItemSubCategoryIII")]
+        [ForeignKey("ItemSubCategoryI")]
         public int ItemSubCategoryId { get; set; }
-        public int? ParentitemId { get; set; }       
-        public double? RatioToParentItem { get; set; }
-
-        public virtual ItemSubCategoryIII ItemSubCategory { get; set; }
-
     }
 }

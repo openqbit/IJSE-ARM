@@ -74,6 +74,10 @@
     <Compile Include="FamilyDetails.cs" />
     <Compile Include="GSArea.cs" />
     <Compile Include="AidAllocationPending.cs" />
+    <Compile Include="ItemCategory.cs" />
+    <Compile Include="ItemSubCategoryI.cs" />
+    <Compile Include="ItemSubCategoryII.cs" />
+    <Compile Include="ItemSubCategoryIII.cs" />
     <Compile Include="Person.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Province.cs" />
