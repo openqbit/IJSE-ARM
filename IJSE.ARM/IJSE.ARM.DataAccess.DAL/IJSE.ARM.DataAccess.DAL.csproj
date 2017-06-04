@@ -57,6 +57,12 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\IJSE.ARM.Common.Models\IJSE.ARM.Common.Models.csproj">
+      <Project>{bfe6fa88-44ce-43ba-bc70-4665d14d0275}</Project>
+      <Name>IJSE.ARM.Common.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
