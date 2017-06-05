@@ -51,17 +51,18 @@
   <ItemGroup>
     <Compile Include="ARMContext.cs" />
     <Compile Include="Class1.cs" />
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
-    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\IJSE.ARM.Common.Models\IJSE.ARM.Common.Models.csproj">
       <Project>{bfe6fa88-44ce-43ba-bc70-4665d14d0275}</Project>
       <Name>IJSE.ARM.Common.Models</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
