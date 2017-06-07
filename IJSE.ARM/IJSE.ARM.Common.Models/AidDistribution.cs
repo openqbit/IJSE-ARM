@@ -23,5 +23,8 @@ namespace IJSE.ARM.Common.Models
         [ForeignKey("OfficerInChargeId")]
         public virtual Person OfficerInCharge { get; set; }
 
+        public int DisasterMasterId { get; set; }
+        public virtual DisasterMaster DisasterMaster { get; set; }
+
     }
 }

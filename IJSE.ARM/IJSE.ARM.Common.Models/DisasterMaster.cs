@@ -11,5 +11,10 @@ namespace IJSE.ARM.Common.Models
         public int Id { get; set; }
         public string  Description { get; set; }
         public DateTime Date { get; set; }
+
+        public int DisasterTypeId { get; set; }
+        public virtual DisasterType DisasterType { get; set; }
+
+        
     }
 }

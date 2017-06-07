@@ -13,5 +13,8 @@ namespace IJSE.ARM.Common.Models
         public int DonationRequestDetailId { get; set; }
         public double Qty { get; set; }
         public bool Active { get; set; }
+
+     //   public virtual AidRequestDetail AidRequestDetail { get; set; }
+     //   public virtual DonationRequestDetail DonationRequestDetail { get; set; }
     }
 }

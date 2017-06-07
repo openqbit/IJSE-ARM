@@ -19,5 +19,8 @@ namespace IJSE.ARM.Common.Models
 
         public DateTime RecivedDate { get; set; }
         public bool Active { get; set; }
+
+     //   public virtual AidRequestDetail AidRequestDetail { get; set; }
+     //   public virtual AidDistributionItemDetail AidDistributionItemDetail { get; set; }
     }
 }

@@ -10,7 +10,7 @@ namespace IJSE.ARM.Common.Models
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public int ProvinceId { get; set; }
-        public virtual Province Province { get; set; }
+        public int AGOfficeId { get; set; }
+        public virtual AGOffice AGOffice { get; set; }
     }
 }

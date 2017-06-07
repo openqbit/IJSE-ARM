@@ -13,7 +13,11 @@ namespace IJSE.ARM.Common.Models
         public int Id { get; set; } 
         public string Address { get; set; }
         public int NoOfMembers { get; set; }
-       
+
+        public int GSAreaId { get; set; }
+        public virtual GSArea GSArea { get; set; }
+
+
         //public int PrimaryMemeberId { get; set; }
 
         //[ForeignKey("primaryMemberId")]

@@ -15,5 +15,8 @@ namespace IJSE.ARM.Common.Models
         public double Qty { get; set; }
 
         public bool Active { get; set; }
+
+    //    public virtual AidRequestDetail AidRequestDetail { get; set; }
+    //    public virtual DonationRecivedDetail DonationRecivedDetail { get; set; }
     }
 }

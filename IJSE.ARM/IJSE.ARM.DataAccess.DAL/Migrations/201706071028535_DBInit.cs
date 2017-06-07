@@ -12,6 +12,30 @@ namespace IJSE.ARM.DataAccess.DAL.Migrations
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
+                        Name = c.String(),
+                        DistrictId = c.Int(nullable: false),
+                    })
+                .PrimaryKey(t => t.Id)
+                .ForeignKey("dbo.District", t => t.DistrictId, cascadeDelete: true)
+                .Index(t => t.DistrictId);
+            
+            CreateTable(
+                "dbo.District",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        Name = c.String(),
+                        ProvinceId = c.Int(nullable: false),
+                    })
+                .PrimaryKey(t => t.Id)
+                .ForeignKey("dbo.Province", t => t.ProvinceId, cascadeDelete: true)
+                .Index(t => t.ProvinceId);
+            
+            CreateTable(
+                "dbo.Province",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
                     })
                 .PrimaryKey(t => t.Id);
             
@@ -64,10 +88,35 @@ namespace IJSE.ARM.DataAccess.DAL.Migrations
                         OfficerInChargeId = c.Int(nullable: false),
                         ImagePathRef = c.String(),
                         RefNotes = c.String(),
+                        DisasterMasterId = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
+                .ForeignKey("dbo.DisasterMaster", t => t.DisasterMasterId, cascadeDelete: true)
                 .ForeignKey("dbo.Person", t => t.OfficerInChargeId, cascadeDelete: true)
-                .Index(t => t.OfficerInChargeId);
+                .Index(t => t.OfficerInChargeId)
+                .Index(t => t.DisasterMasterId);
+            
+            CreateTable(
+                "dbo.DisasterMaster",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        Description = c.String(),
+                        Date = c.DateTime(nullable: false),
+                        DisasterTypeId = c.Int(nullable: false),
+                    })
+                .PrimaryKey(t => t.Id)
+                .ForeignKey("dbo.DisasterType", t => t.DisasterTypeId, cascadeDelete: true)
+                .Index(t => t.DisasterTypeId);
+            
+            CreateTable(
+                "dbo.DisasterType",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        Name = c.String(),
+                    })
+                .PrimaryKey(t => t.Id);
             
             CreateTable(
                 "dbo.Person",
@@ -95,7 +144,9 @@ namespace IJSE.ARM.DataAccess.DAL.Migrations
                         ImagePathRef = c.String(),
                         RefNotes = c.String(),
                     })
-                .PrimaryKey(t => t.Id);
+                .PrimaryKey(t => t.Id)
+                .ForeignKey("dbo.AidDistribution", t => t.AidDistributionId, cascadeDelete: true)
+                .Index(t => t.AidDistributionId);
             
             CreateTable(
                 "dbo.AidDistributionConvoyVehicles",
@@ -108,7 +159,9 @@ namespace IJSE.ARM.DataAccess.DAL.Migrations
                         ImagePathRef = c.String(),
                         RefNotes = c.String(),
                     })
-                .PrimaryKey(t => t.Id);
+                .PrimaryKey(t => t.Id)
+                .ForeignKey("dbo.AidDistributionConvoy", t => t.AidDistributionConvoyId, cascadeDelete: true)
+                .Index(t => t.AidDistributionConvoyId);
             
             CreateTable(
                 "dbo.AidDistributionItemDetail",
@@ -198,24 +251,29 @@ namespace IJSE.ARM.DataAccess.DAL.Migrations
                 .Index(t => t.DisasterMasterId);
             
             CreateTable(
-                "dbo.DisasterMaster",
-                c => new
-                    {
-                        Id = c.Int(nullable: false, identity: true),
-                        Description = c.String(),
-                        Date = c.DateTime(nullable: false),
-                    })
-                .PrimaryKey(t => t.Id);
-            
-            CreateTable(
                 "dbo.Family",
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
                         Address = c.String(),
                         NoOfMembers = c.Int(nullable: false),
+                        GSAreaId = c.Int(nullable: false),
                     })
-                .PrimaryKey(t => t.Id);
+                .PrimaryKey(t => t.Id)
+                .ForeignKey("dbo.GSArea", t => t.GSAreaId, cascadeDelete: true)
+                .Index(t => t.GSAreaId);
+            
+            CreateTable(
+                "dbo.GSArea",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        Name = c.String(),
+                        AGOfficeId = c.Int(nullable: false),
+                    })
+                .PrimaryKey(t => t.Id)
+                .ForeignKey("dbo.AGOffice", t => t.AGOfficeId, cascadeDelete: true)
+                .Index(t => t.AGOfficeId);
             
             CreateTable(
                 "dbo.AidRequestDetail",
@@ -241,23 +299,6 @@ namespace IJSE.ARM.DataAccess.DAL.Migrations
                         TelLand = c.String(),
                         TelMobile = c.String(),
                         Address = c.String(),
-                    })
-                .PrimaryKey(t => t.Id);
-            
-            CreateTable(
-                "dbo.DisasterType",
-                c => new
-                    {
-                        Id = c.Int(nullable: false, identity: true),
-                        Name = c.String(),
-                    })
-                .PrimaryKey(t => t.Id);
-            
-            CreateTable(
-                "dbo.District",
-                c => new
-                    {
-                        Id = c.Int(nullable: false, identity: true),
                     })
                 .PrimaryKey(t => t.Id);
             
@@ -313,7 +354,7 @@ namespace IJSE.ARM.DataAccess.DAL.Migrations
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
-                        IsPrimaryContact = c.Boolean(nullable: false, defaultValue:false),
+                        IsPrimaryContact = c.Boolean(nullable: false, defaultValue: false),
                         DonorId = c.Int(nullable: false),
                         PersonId = c.Int(nullable: false),
                     })
@@ -386,26 +427,6 @@ namespace IJSE.ARM.DataAccess.DAL.Migrations
                 .Index(t => t.FamilyId);
             
             CreateTable(
-                "dbo.GSArea",
-                c => new
-                    {
-                        Id = c.Int(nullable: false, identity: true),
-                        Name = c.String(),
-                        ProvinceId = c.Int(nullable: false),
-                    })
-                .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Province", t => t.ProvinceId, cascadeDelete: true)
-                .Index(t => t.ProvinceId);
-            
-            CreateTable(
-                "dbo.Province",
-                c => new
-                    {
-                        Id = c.Int(nullable: false, identity: true),
-                    })
-                .PrimaryKey(t => t.Id);
-            
-            CreateTable(
                 "dbo.SystemUser",
                 c => new
                     {
@@ -428,7 +449,6 @@ namespace IJSE.ARM.DataAccess.DAL.Migrations
         {
             DropForeignKey("dbo.SystemUser", "PersonId", "dbo.Person");
             DropForeignKey("dbo.Item", "ItemSubCategoryId", "dbo.ItemSubCategoryIII");
-            DropForeignKey("dbo.GSArea", "ProvinceId", "dbo.Province");
             DropForeignKey("dbo.FamilyDetail", "PersonId", "dbo.Person");
             DropForeignKey("dbo.FamilyDetail", "FamilyId", "dbo.Family");
             DropForeignKey("dbo.DonorCompany", "DonorId", "dbo.Donor");
@@ -446,13 +466,20 @@ namespace IJSE.ARM.DataAccess.DAL.Migrations
             DropForeignKey("dbo.AidRequestDetail", "PersonId", "dbo.Person");
             DropForeignKey("dbo.AidRequestDetail", "AidItemId", "dbo.Item");
             DropForeignKey("dbo.AidRequest", "FamilyId", "dbo.Family");
+            DropForeignKey("dbo.Family", "GSAreaId", "dbo.GSArea");
+            DropForeignKey("dbo.GSArea", "AGOfficeId", "dbo.AGOffice");
             DropForeignKey("dbo.AidRequest", "DisasterMasterId", "dbo.DisasterMaster");
             DropForeignKey("dbo.ItemSubCategoryIII", "ItemSubCategoryId", "dbo.ItemSubCategoryII");
             DropForeignKey("dbo.ItemSubCategoryII", "ItemSubCategoryId", "dbo.ItemSubCategoryI");
             DropForeignKey("dbo.ItemSubCategoryI", "ItemSubCategoryId", "dbo.ItemCategory");
+            DropForeignKey("dbo.AidDistributionConvoyVehicles", "AidDistributionConvoyId", "dbo.AidDistributionConvoy");
+            DropForeignKey("dbo.AidDistributionConvoy", "AidDistributionId", "dbo.AidDistribution");
             DropForeignKey("dbo.AidDistribution", "OfficerInChargeId", "dbo.Person");
+            DropForeignKey("dbo.AidDistribution", "DisasterMasterId", "dbo.DisasterMaster");
+            DropForeignKey("dbo.DisasterMaster", "DisasterTypeId", "dbo.DisasterType");
+            DropForeignKey("dbo.AGOffice", "DistrictId", "dbo.District");
+            DropForeignKey("dbo.District", "ProvinceId", "dbo.Province");
             DropIndex("dbo.SystemUser", new[] { "PersonId" });
-            DropIndex("dbo.GSArea", new[] { "ProvinceId" });
             DropIndex("dbo.FamilyDetail", new[] { "FamilyId" });
             DropIndex("dbo.FamilyDetail", new[] { "PersonId" });
             DropIndex("dbo.DonorCompany", new[] { "CompanyId" });
@@ -469,16 +496,22 @@ namespace IJSE.ARM.DataAccess.DAL.Migrations
             DropIndex("dbo.DonationRecived", new[] { "DonationRequestId" });
             DropIndex("dbo.AidRequestDetail", new[] { "AidItemId" });
             DropIndex("dbo.AidRequestDetail", new[] { "PersonId" });
+            DropIndex("dbo.GSArea", new[] { "AGOfficeId" });
+            DropIndex("dbo.Family", new[] { "GSAreaId" });
             DropIndex("dbo.AidRequest", new[] { "DisasterMasterId" });
             DropIndex("dbo.AidRequest", new[] { "FamilyId" });
             DropIndex("dbo.ItemSubCategoryI", new[] { "ItemSubCategoryId" });
             DropIndex("dbo.ItemSubCategoryII", new[] { "ItemSubCategoryId" });
             DropIndex("dbo.ItemSubCategoryIII", new[] { "ItemSubCategoryId" });
             DropIndex("dbo.Item", new[] { "ItemSubCategoryId" });
+            DropIndex("dbo.AidDistributionConvoyVehicles", new[] { "AidDistributionConvoyId" });
+            DropIndex("dbo.AidDistributionConvoy", new[] { "AidDistributionId" });
+            DropIndex("dbo.DisasterMaster", new[] { "DisasterTypeId" });
+            DropIndex("dbo.AidDistribution", new[] { "DisasterMasterId" });
             DropIndex("dbo.AidDistribution", new[] { "OfficerInChargeId" });
+            DropIndex("dbo.District", new[] { "ProvinceId" });
+            DropIndex("dbo.AGOffice", new[] { "DistrictId" });
             DropTable("dbo.SystemUser");
-            DropTable("dbo.Province");
-            DropTable("dbo.GSArea");
             DropTable("dbo.FamilyDetail");
             DropTable("dbo.DonorCompany");
             DropTable("dbo.DonationRequestDetail");
@@ -487,12 +520,10 @@ namespace IJSE.ARM.DataAccess.DAL.Migrations
             DropTable("dbo.Donor");
             DropTable("dbo.DonationRequest");
             DropTable("dbo.DonationRecived");
-            DropTable("dbo.District");
-            DropTable("dbo.DisasterType");
             DropTable("dbo.Company");
             DropTable("dbo.AidRequestDetail");
+            DropTable("dbo.GSArea");
             DropTable("dbo.Family");
-            DropTable("dbo.DisasterMaster");
             DropTable("dbo.AidRequest");
             DropTable("dbo.ItemCategory");
             DropTable("dbo.ItemSubCategoryI");
@@ -503,10 +534,14 @@ namespace IJSE.ARM.DataAccess.DAL.Migrations
             DropTable("dbo.AidDistributionConvoyVehicles");
             DropTable("dbo.AidDistributionConvoy");
             DropTable("dbo.Person");
+            DropTable("dbo.DisasterType");
+            DropTable("dbo.DisasterMaster");
             DropTable("dbo.AidDistribution");
             DropTable("dbo.AidAllocationRecived");
             DropTable("dbo.AidAllocationPending");
             DropTable("dbo.AidAllocationDistributed");
+            DropTable("dbo.Province");
+            DropTable("dbo.District");
             DropTable("dbo.AGOffice");
         }
     }

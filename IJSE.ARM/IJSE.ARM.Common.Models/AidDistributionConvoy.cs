@@ -16,5 +16,6 @@ namespace IJSE.ARM.Common.Models
 
         public string ImagePathRef { get; set; }
         public string RefNotes { get; set; }
+        public virtual AidDistribution AidDistribution { get; set; }
     }
 }
