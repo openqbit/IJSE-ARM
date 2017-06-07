@@ -10,6 +10,8 @@ namespace IJSE.ARM.Common.Models
     {
         public int Id { get; set; }
 
+        public bool IsPrimaryContact { get; set; }
+
         public int DonorId { get; set; }
         public int PersonId { get; set; }
 

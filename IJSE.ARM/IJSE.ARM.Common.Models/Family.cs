@@ -12,11 +12,11 @@ namespace IJSE.ARM.Common.Models
     {
         public int Id { get; set; } 
         public string Address { get; set; }
-        public int NoOfMemebers { get; set; }
+        public int NoOfMembers { get; set; }
        
-        public int primaryMemeberId { get; set; }
+        //public int PrimaryMemeberId { get; set; }
 
-        [ForeignKey("primaryMemeberId")]
-        public virtual Person primaryMemeber { get; set; }
+        //[ForeignKey("primaryMemberId")]
+        //public virtual Person PrimaryMember { get; set; }
     }
 }

@@ -213,12 +213,9 @@ namespace IJSE.ARM.DataAccess.DAL.Migrations
                     {
                         Id = c.Int(nullable: false, identity: true),
                         Address = c.String(),
-                        NoOfMemebers = c.Int(nullable: false),
-                        primaryMemeberId = c.Int(nullable: false),
+                        NoOfMembers = c.Int(nullable: false),
                     })
-                .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Person", t => t.primaryMemeberId, cascadeDelete: true)
-                .Index(t => t.primaryMemeberId);
+                .PrimaryKey(t => t.Id);
             
             CreateTable(
                 "dbo.AidRequestDetail",
@@ -308,17 +305,15 @@ namespace IJSE.ARM.DataAccess.DAL.Migrations
                         Id = c.Int(nullable: false, identity: true),
                         DonorType = c.Int(nullable: false),
                         Name = c.String(),
-                        PrimaryContactPersonId = c.Int(nullable: false),
                     })
-                .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Person", t => t.PrimaryContactPersonId, cascadeDelete: true)
-                .Index(t => t.PrimaryContactPersonId);
+                .PrimaryKey(t => t.Id);
             
             CreateTable(
                 "dbo.DonorPeople",
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
+                        IsPrimaryContact = c.Boolean(nullable: false, defaultValue:false),
                         DonorId = c.Int(nullable: false),
                         PersonId = c.Int(nullable: false),
                     })
@@ -380,6 +375,7 @@ namespace IJSE.ARM.DataAccess.DAL.Migrations
                     {
                         Id = c.Int(nullable: false, identity: true),
                         PersonId = c.Int(nullable: false),
+                        IsPrimaryMember = c.Boolean(nullable: false, defaultValue: false),
                         FamilyId = c.Int(nullable: false),
                         FamilyMemeberType = c.Int(nullable: false),
                     })
@@ -443,7 +439,6 @@ namespace IJSE.ARM.DataAccess.DAL.Migrations
             DropForeignKey("dbo.DonationRecivedDetail", "AidItemId", "dbo.Item");
             DropForeignKey("dbo.DonationRecived", "DonationRequestId", "dbo.DonationRequest");
             DropForeignKey("dbo.DonationRequest", "DonorId", "dbo.Donor");
-            DropForeignKey("dbo.Donor", "PrimaryContactPersonId", "dbo.Person");
             DropForeignKey("dbo.DonorPeople", "PersonId", "dbo.Person");
             DropForeignKey("dbo.DonorPeople", "DonorId", "dbo.Donor");
             DropForeignKey("dbo.DonationRequest", "DisasterMasterId", "dbo.DisasterMaster");
@@ -451,7 +446,6 @@ namespace IJSE.ARM.DataAccess.DAL.Migrations
             DropForeignKey("dbo.AidRequestDetail", "PersonId", "dbo.Person");
             DropForeignKey("dbo.AidRequestDetail", "AidItemId", "dbo.Item");
             DropForeignKey("dbo.AidRequest", "FamilyId", "dbo.Family");
-            DropForeignKey("dbo.Family", "primaryMemeberId", "dbo.Person");
             DropForeignKey("dbo.AidRequest", "DisasterMasterId", "dbo.DisasterMaster");
             DropForeignKey("dbo.ItemSubCategoryIII", "ItemSubCategoryId", "dbo.ItemSubCategoryII");
             DropForeignKey("dbo.ItemSubCategoryII", "ItemSubCategoryId", "dbo.ItemSubCategoryI");
@@ -469,14 +463,12 @@ namespace IJSE.ARM.DataAccess.DAL.Migrations
             DropIndex("dbo.DonationRecivedDetail", new[] { "DonationRecivedId" });
             DropIndex("dbo.DonorPeople", new[] { "PersonId" });
             DropIndex("dbo.DonorPeople", new[] { "DonorId" });
-            DropIndex("dbo.Donor", new[] { "PrimaryContactPersonId" });
             DropIndex("dbo.DonationRequest", new[] { "DonorId" });
             DropIndex("dbo.DonationRequest", new[] { "DisasterMasterId" });
             DropIndex("dbo.DonationRecived", new[] { "AcceptedOfficerId" });
             DropIndex("dbo.DonationRecived", new[] { "DonationRequestId" });
             DropIndex("dbo.AidRequestDetail", new[] { "AidItemId" });
             DropIndex("dbo.AidRequestDetail", new[] { "PersonId" });
-            DropIndex("dbo.Family", new[] { "primaryMemeberId" });
             DropIndex("dbo.AidRequest", new[] { "DisasterMasterId" });
             DropIndex("dbo.AidRequest", new[] { "FamilyId" });
             DropIndex("dbo.ItemSubCategoryI", new[] { "ItemSubCategoryId" });
