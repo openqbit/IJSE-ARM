@@ -16,12 +16,14 @@ namespace IJSE.ARM.Common.Models
 
         public string Name { get; set; }
 
-        [ForeignKey("Person")]
+        
         public int PrimaryContactPersonId { get; set; }
 
+
+        [ForeignKey("PrimaryContactPersonId")]
         public virtual Person PrimaryContactPerson { get; set; }
         public virtual ICollection<DonorPeople> DonorPeople { get; set; }
-        public virtual DonorCompany DonorCompany { get; set; }  // can be null for Individual, Group
+       // public virtual DonorCompany DonorCompany { get; set; }  // can be null for Individual, Group
 
     }
 

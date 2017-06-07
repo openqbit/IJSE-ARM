@@ -14,15 +14,14 @@ namespace IJSE.ARM.Common.Models
 
         public DateTime ETA { get; set; }
         public DateTime DeployedDate { get; set; }
-
-       // [ForeignKey("Person")]
-       // public int OfficerInChargeId { get; set; }
-        public int PersonId { get; set; }
+        
+        public int OfficerInChargeId { get; set; }      
 
         public string ImagePathRef { get; set; }
         public string RefNotes { get; set; }
 
-      //  public virtual Person OfficerInCharge { get; set; }
+        [ForeignKey("OfficerInChargeId")]
+        public virtual Person OfficerInCharge { get; set; }
 
     }
 }

@@ -17,10 +17,11 @@ namespace IJSE.ARM.Common.Models
         public string ImagePathRef { get; set; }
         public string RefNotes { get; set; }
 
-        [ForeignKey("Person")]
+
         public int AcceptedOfficerId { get; set; }       
         public bool Status { get; set; }
 
+        [ForeignKey("AcceptedOfficerId")]
         public virtual Person AcceptedOfficer { get; set; }
         public virtual DonationRequest DonationRequest { get; set; }
 

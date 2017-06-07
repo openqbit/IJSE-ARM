@@ -12,8 +12,10 @@ namespace IJSE.ARM.Common.Models
     {
         public int Id { get; set; }
         public string Name { get; set; }
-
-        [ForeignKey("ItemSubCategoryI")]
+       
         public int ItemSubCategoryId { get; set; }
+
+        [ForeignKey("ItemSubCategoryId")]
+        public virtual ItemSubCategoryI ItemSubCategory { get; set; }
     }
 }

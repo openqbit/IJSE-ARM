@@ -14,11 +14,11 @@ namespace IJSE.ARM.Common.Models
         public string Name { get; set; }
         public string Unit { get; set; }
 
-        [ForeignKey("ItemSubCategoryIII")]
         public int ItemSubCategoryId { get; set; }
         public int? ParentitemId { get; set; }       
         public double? RatioToParentItem { get; set; }
 
+        [ForeignKey("ItemSubCategoryId")]
         public virtual ItemSubCategoryIII ItemSubCategory { get; set; }
 
     }

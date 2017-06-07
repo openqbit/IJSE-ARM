@@ -13,8 +13,10 @@ namespace IJSE.ARM.Common.Models
         public int Id { get; set; } 
         public string Address { get; set; }
         public int NoOfMemebers { get; set; }
-
-        [ForeignKey("Person")]
+       
         public int primaryMemeberId { get; set; }
+
+        [ForeignKey("primaryMemeberId")]
+        public virtual Person primaryMemeber { get; set; }
     }
 }

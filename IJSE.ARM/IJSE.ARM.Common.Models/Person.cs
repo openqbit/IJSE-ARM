@@ -13,13 +13,16 @@ namespace IJSE.ARM.Common.Models
     public class Person
     {
         [Key]
-        public int Id { get; set; }
+        public int PersonId { get; set; }
         public DateTime? DOB { get; set; }
         public string NIC { get; set; }
         public string MobileNumber { get; set; }
         public string Address { get; set; }
         public string Email { get; set; }
         public Gender Gender { get; set; }
+
+
+      //  public virtual ICollection<AidDistribution> AidDistribution { get; set; }
     }
 
     public enum Gender { male, Female}
