@@ -5,13 +5,16 @@ using System.Text;
 using System.Threading.Tasks;
 
 using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
 
 namespace IJSE.ARM.Common.Models
 {
     public class DonorCompany
     {
+        [Key]
         public int Id { get; set; }
 
+        //[ForeignKey("Donor")]
         public int DonorId { get; set; }
         public int CompanyId { get; set; }
 

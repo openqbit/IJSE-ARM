@@ -15,10 +15,8 @@ namespace IJSE.ARM.Common.Models
         public DonorType DonorType { get; set; }
 
         public string Name { get; set; }
-
         
-        public int PrimaryContactPersonId { get; set; }
-
+        public int PrimaryContactPersonId { get; set; }      
 
         [ForeignKey("PrimaryContactPersonId")]
         public virtual Person PrimaryContactPerson { get; set; }

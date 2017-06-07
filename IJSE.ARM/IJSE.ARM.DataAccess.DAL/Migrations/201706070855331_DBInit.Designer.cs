@@ -13,7 +13,7 @@ namespace IJSE.ARM.DataAccess.DAL.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201706070830019_DBInit"; }
+            get { return "201706070855331_DBInit"; }
         }
         
         string IMigrationMetadata.Source
