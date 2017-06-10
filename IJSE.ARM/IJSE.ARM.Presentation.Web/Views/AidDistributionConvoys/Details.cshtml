@@ -1,0 +1,67 @@
+﻿@model IJSE.ARM.Common.Models.AidDistributionConvoy
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout_2.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>AidDistributionConvoy</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.AidDistribution.ImagePathRef)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AidDistribution.ImagePathRef)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TotalVehicles)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TotalVehicles)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Root)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Root)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GPSLocations)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GPSLocations)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ImagePathRef)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ImagePathRef)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RefNotes)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RefNotes)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

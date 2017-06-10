@@ -1,0 +1,59 @@
+﻿@model IJSE.ARM.Common.Models.DonationRecivedDetail
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout_2.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>DonationRecivedDetail</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.AidItem.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AidItem.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DonationRecived.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DonationRecived.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Qty)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Qty)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ImagePathRef)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ImagePathRef)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RefNotes)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RefNotes)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

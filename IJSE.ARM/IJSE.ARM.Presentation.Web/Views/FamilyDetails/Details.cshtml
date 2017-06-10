@@ -1,0 +1,51 @@
+﻿@model IJSE.ARM.Common.Models.FamilyDetail
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout_2.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>FamilyDetail</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Family.Address)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Family.Address)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Person.NIC)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Person.NIC)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsPrimaryMember)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsPrimaryMember)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FamilyMemeberType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FamilyMemeberType)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

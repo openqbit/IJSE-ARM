@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <link href="~/Content/simple-sidebar.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Layout 3</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div id="wrapper">
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="text-center">
+                    <img src="~/Images/letter-a-logo-template.png" style="padding:20px;width:150px;" />
+                </li>
+                <li>@Html.ActionLink("Province", "Index", "Provinces")</li>
+                <li>@Html.ActionLink("District", "Index", "Districts")</li>
+                <li>@Html.ActionLink("AGOffices", "Index", "AGOffices")</li>
+                <li>@Html.ActionLink("GSAreas", "Index", "GSAreas")</li>
+                <li>@Html.ActionLink("DisasterMasters", "Index", "DisasterMasters")</li>
+                <li>@Html.ActionLink("DisasterTypes", "Index", "DisasterTypes")</li>
+            </ul>
+        </div>
+        <!-- /#sidebar-wrapper -->
+        <div>
+            <div class="nav" style="background-color:#706e6e;color:#ffffff;">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" style="color:#ffffff;background-color:#808080;">
+                            Login
+                        </button>
+                    </div>
+                    <div class="navbar-collapse collapse">
+                        <ul class="nav navbar-nav navbar-right">
+                            @{
+                                if (User.Identity.IsAuthenticated)
+                                {
+                                    <li>
+                                        <a>
+                                            @User.Identity.Name.ToString()
+                                        </a>
+                                    </li>
+                                    <li>@Html.ActionLink("LogOff", "Logoff", "Login")</li>
+                                }
+                                else
+                                {
+                                    <li>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+                                    <li>@Html.ActionLink("Login", "Login", "Login")</li>
+                                }
+                            }
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container body-content">
+
+            <a href="#menu-toggle" class="btn btn-default" id="menu-toggle" style="position:absolute;background-color:#808080;color:#ffffff;margin-top:10px;">Menu</a>
+            <!-- Page Content -->
+            <div id="page-content-wrapper">
+                @RenderBody()
+                <hr />
+                <footer>
+                    <p>&copy; @DateTime.Now.Year - Aid Refief Managment System | Developed by W.A.C.I.Appuhamy | Powerd by <a href="http://www.ijse.lk/">Institute of Software Engineering(IJSE)</a></p>
+                </footer>
+            </div>
+        </div>
+        <!-- /#page-content-wrapper -->
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    <script src="~/Scripts/ARMScript.js"></script>
+    @RenderSection("scripts", required: false)
+</body>
+</html>

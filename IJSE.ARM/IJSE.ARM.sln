@@ -19,6 +19,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5 Test", "5 Test", "{F8BBC3
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IJSE.ARM.DataAccess.DAL", "IJSE.ARM.DataAccess.DAL\IJSE.ARM.DataAccess.DAL.csproj", "{07ABFB65-F866-412E-AC35-211318A76266}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IJSE.ARM.Presentation.Web", "IJSE.ARM.Presentation.Web\IJSE.ARM.Presentation.Web.csproj", "{7E74948F-DE9A-40ED-9842-93242DC97D95}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IJSE.ARM.Presentation.Web.Tests", "IJSE.ARM.Presentation.Web.Tests\IJSE.ARM.Presentation.Web.Tests.csproj", "{13048E7D-2025-44EB-A77B-31AE446212D9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +37,14 @@ Global
 		{07ABFB65-F866-412E-AC35-211318A76266}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{07ABFB65-F866-412E-AC35-211318A76266}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{07ABFB65-F866-412E-AC35-211318A76266}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7E74948F-DE9A-40ED-9842-93242DC97D95}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E74948F-DE9A-40ED-9842-93242DC97D95}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E74948F-DE9A-40ED-9842-93242DC97D95}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E74948F-DE9A-40ED-9842-93242DC97D95}.Release|Any CPU.Build.0 = Release|Any CPU
+		{13048E7D-2025-44EB-A77B-31AE446212D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{13048E7D-2025-44EB-A77B-31AE446212D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{13048E7D-2025-44EB-A77B-31AE446212D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{13048E7D-2025-44EB-A77B-31AE446212D9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -40,5 +52,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{BFE6FA88-44CE-43BA-BC70-4665D14D0275} = {C1254DCB-BA4D-4717-8505-DDB91BE20172}
 		{07ABFB65-F866-412E-AC35-211318A76266} = {5ED4500F-C7C1-481A-BC83-6325E4C4432D}
+		{7E74948F-DE9A-40ED-9842-93242DC97D95} = {8CDBB2E2-D8B4-412F-BA52-EAB90AB5675F}
+		{13048E7D-2025-44EB-A77B-31AE446212D9} = {8CDBB2E2-D8B4-412F-BA52-EAB90AB5675F}
 	EndGlobalSection
 EndGlobal
