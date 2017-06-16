@@ -14,6 +14,7 @@ namespace IJSE.ARM.Common.Models
     {
         [Key]
         public int PersonId { get; set; }
+        public string Name { get; set; }
         public DateTime? DOB { get; set; }
         public string NIC { get; set; }
         public string MobileNumber { get; set; }

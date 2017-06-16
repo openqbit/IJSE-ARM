@@ -11,6 +11,7 @@ using IJSE.ARM.DataAccess.DAL;
 
 namespace IJSE.ARM.Presentation.Web.Controllers
 {
+    [Authorize]
     public class GSAreasController : Controller
     {
         private ARMContext db = new ARMContext();

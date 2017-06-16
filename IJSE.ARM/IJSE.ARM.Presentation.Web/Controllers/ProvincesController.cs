@@ -11,6 +11,7 @@ using IJSE.ARM.DataAccess.DAL;
 
 namespace IJSE.ARM.Presentation.Web.Controllers
 {
+    [Authorize]
     public class ProvincesController : Controller
     {
         private ARMContext db = new ARMContext();
@@ -46,8 +47,8 @@ namespace IJSE.ARM.Presentation.Web.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id")] Province province)
+       // [ValidateAntiForgeryToken]
+        public ActionResult Create([Bind(Include = "Id,Name")] Province province)
         {
             if (ModelState.IsValid)
             {
@@ -78,8 +79,8 @@ namespace IJSE.ARM.Presentation.Web.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id")] Province province)
+      //  [ValidateAntiForgeryToken]
+        public ActionResult Edit([Bind(Include = "Id,Name")] Province province)
         {
             if (ModelState.IsValid)
             {
@@ -107,7 +108,7 @@ namespace IJSE.ARM.Presentation.Web.Controllers
 
         // POST: Provinces/Delete/5
         [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
+       // [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
             Province province = db.Province.Find(id);

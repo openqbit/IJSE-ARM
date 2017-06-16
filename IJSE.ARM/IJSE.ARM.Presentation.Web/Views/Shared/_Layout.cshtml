@@ -3,12 +3,11 @@
 <head>
     <meta charset="utf-8" />
     <link href="~/Content/simple-sidebar.css" rel="stylesheet" />
-     <link href="~/fonts/font-awesome.min.css" rel="stylesheet" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - My ASP.NET Application</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
-   
+   @Styles.Render("~/Content/fontawesome")
 
 </head>
 <body>
@@ -21,13 +20,15 @@
                     <img src="~/Images/letter-a-logo-template.png" style="padding:20px;width:150px;"/>
                 </li>
                 <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                <li>@Html.ActionLink("Companies", "Index", "Companies")</li>
+                <li>@Html.ActionLink("People", "Index", "People")</li>
+                <li >@Html.ActionLink("Companies", "Index", "Companies")</li>
                 <li>@Html.ActionLink("DonationRequests", "Index", "DonationRequests")</li>
                 <li>@Html.ActionLink("DonationRequestDetails", "Index", "DonationRequestDetails")</li>
                 <li>@Html.ActionLink("Donors", "Index", "Donors")</li>
                 <li>@Html.ActionLink("DonorCompanies", "Index", "DonorCompanies")</li>
                 <li>@Html.ActionLink("DonorPeoples", "Index", "DonorPeoples")</li>
-                <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                <li>@Html.ActionLink("Donation", "Index", "Donation")</li>
+                <li>@Html.ActionLink("Contact", "Contact", "Home")</li> 
             </ul>
         </div>
         <!-- /#sidebar-wrapper -->
@@ -50,11 +51,10 @@
                                             @User.Identity.Name.ToString()
                                         </a>
                                     </li>
-                                    <li>@Html.ActionLink("LogOff", "Logoff", "Login")</li>
+                                    <li>@Html.ActionLink("Logoff", "Logoff", "Login")</li>
                                 }
                                 else
                                 {
-                                    <li>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
                                     <li>@Html.ActionLink("Login", "Login", "Login")</li>
                                 }
                             }

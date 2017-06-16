@@ -102,6 +102,10 @@
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
     </Reference>
+    <Reference Include="WebActivatorEx, Version=2.0.0.0, Culture=neutral, PublicKeyToken=7b26dc2a43f6a0d4, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebActivatorEx.2.0\lib\net40\WebActivatorEx.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="WebGrease">
       <Private>True</Private>
       <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
@@ -164,6 +168,7 @@
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\FontAwesomeBundleConfig.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
@@ -173,12 +178,14 @@
     <Compile Include="Controllers\AidDistributionConvoyVehiclesController.cs" />
     <Compile Include="Controllers\AidDistributionItemDetailsController.cs" />
     <Compile Include="Controllers\AidDistributionsController.cs" />
+    <Compile Include="Controllers\AidItemsController.cs" />
     <Compile Include="Controllers\AidRequestDetailsController.cs" />
     <Compile Include="Controllers\AidRequestsController.cs" />
     <Compile Include="Controllers\CompaniesController.cs" />
     <Compile Include="Controllers\DisasterMastersController.cs" />
     <Compile Include="Controllers\DisasterTypesController.cs" />
     <Compile Include="Controllers\DistrictsController.cs" />
+    <Compile Include="Controllers\DonationController.cs" />
     <Compile Include="Controllers\DonationRecivedDetailsController.cs" />
     <Compile Include="Controllers\DonationRecivedsController.cs" />
     <Compile Include="Controllers\DonationRequestDetailsController.cs" />
@@ -190,6 +197,10 @@
     <Compile Include="Controllers\FamilyDetailsController.cs" />
     <Compile Include="Controllers\GSAreasController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ItemCategoriesController.cs" />
+    <Compile Include="Controllers\ItemSubCategoryIIIsController.cs" />
+    <Compile Include="Controllers\ItemSubCategoryIIsController.cs" />
+    <Compile Include="Controllers\ItemSubCategoryIsController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PeopleController.cs" />
@@ -198,16 +209,19 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\APIModels\CompanyModel.cs" />
+    <Compile Include="Models\APIModels\DonationCombinationModel.cs" />
+    <Compile Include="Models\APIModels\DonorModel.cs" />
+    <Compile Include="Models\APIModels\PersonModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.svg" />
-    <Content Include="fonts\font-awesome-4.7.0\HELP-US-OUT.txt" />
-    <Content Include="fonts\font-awesome.css" />
-    <Content Include="fonts\font-awesome.min.css" />
+    <Content Include="Content\fontawesome\font-awesome.css" />
+    <Content Include="Content\fontawesome\font-awesome.min.css" />
+    <Content Include="Content\fonts\fontawesome-webfont.svg" />
     <Content Include="Images\letter-a-logo-template.png" />
     <Content Include="Images\logo.jpg" />
     <Content Include="Content\bootstrap.css" />
@@ -220,39 +234,10 @@
     <Content Include="Scripts\ARMScript.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.eot" />
-    <Content Include="fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.ttf" />
-    <Content Include="fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.woff" />
-    <Content Include="fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.woff2" />
-    <Content Include="fonts\font-awesome-4.7.0\fonts\FontAwesome.otf" />
-    <Content Include="fonts\font-awesome-4.7.0\less\animated.less" />
-    <Content Include="fonts\font-awesome-4.7.0\less\bordered-pulled.less" />
-    <Content Include="fonts\font-awesome-4.7.0\less\core.less" />
-    <Content Include="fonts\font-awesome-4.7.0\less\fixed-width.less" />
-    <Content Include="fonts\font-awesome-4.7.0\less\font-awesome.less" />
-    <Content Include="fonts\font-awesome-4.7.0\less\icons.less" />
-    <Content Include="fonts\font-awesome-4.7.0\less\larger.less" />
-    <Content Include="fonts\font-awesome-4.7.0\less\list.less" />
-    <Content Include="fonts\font-awesome-4.7.0\less\mixins.less" />
-    <Content Include="fonts\font-awesome-4.7.0\less\path.less" />
-    <Content Include="fonts\font-awesome-4.7.0\less\rotated-flipped.less" />
-    <Content Include="fonts\font-awesome-4.7.0\less\screen-reader.less" />
-    <Content Include="fonts\font-awesome-4.7.0\less\stacked.less" />
-    <Content Include="fonts\font-awesome-4.7.0\less\variables.less" />
-    <Content Include="fonts\font-awesome-4.7.0\scss\font-awesome.scss" />
-    <Content Include="fonts\font-awesome-4.7.0\scss\_animated.scss" />
-    <Content Include="fonts\font-awesome-4.7.0\scss\_bordered-pulled.scss" />
-    <Content Include="fonts\font-awesome-4.7.0\scss\_core.scss" />
-    <Content Include="fonts\font-awesome-4.7.0\scss\_fixed-width.scss" />
-    <Content Include="fonts\font-awesome-4.7.0\scss\_icons.scss" />
-    <Content Include="fonts\font-awesome-4.7.0\scss\_larger.scss" />
-    <Content Include="fonts\font-awesome-4.7.0\scss\_list.scss" />
-    <Content Include="fonts\font-awesome-4.7.0\scss\_mixins.scss" />
-    <Content Include="fonts\font-awesome-4.7.0\scss\_path.scss" />
-    <Content Include="fonts\font-awesome-4.7.0\scss\_rotated-flipped.scss" />
-    <Content Include="fonts\font-awesome-4.7.0\scss\_screen-reader.scss" />
-    <Content Include="fonts\font-awesome-4.7.0\scss\_stacked.scss" />
-    <Content Include="fonts\font-awesome-4.7.0\scss\_variables.scss" />
+    <Content Include="Content\fonts\FontAwesome.otf" />
+    <Content Include="Content\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\fonts\fontawesome-webfont.eot" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -303,11 +288,6 @@
     <Content Include="Views\Home\Index2.cshtml" />
     <Content Include="Views\Shared\_Layout_3.cshtml" />
     <Content Include="Views\Login\Login.cshtml" />
-    <Content Include="Views\AGOffices\Create.cshtml" />
-    <Content Include="Views\AGOffices\Delete.cshtml" />
-    <Content Include="Views\AGOffices\Details.cshtml" />
-    <Content Include="Views\AGOffices\Edit.cshtml" />
-    <Content Include="Views\AGOffices\Index.cshtml" />
     <Content Include="Views\AidDistributions\Create.cshtml" />
     <Content Include="Views\AidDistributions\Delete.cshtml" />
     <Content Include="Views\AidDistributions\Details.cshtml" />
@@ -358,11 +338,6 @@
     <Content Include="Views\FamilyDetails\Details.cshtml" />
     <Content Include="Views\FamilyDetails\Edit.cshtml" />
     <Content Include="Views\FamilyDetails\Index.cshtml" />
-    <Content Include="Views\People\Create.cshtml" />
-    <Content Include="Views\People\Delete.cshtml" />
-    <Content Include="Views\People\Details.cshtml" />
-    <Content Include="Views\People\Edit.cshtml" />
-    <Content Include="Views\People\Index.cshtml" />
     <Content Include="Views\DisasterMasters\Create.cshtml" />
     <Content Include="Views\DisasterMasters\Delete.cshtml" />
     <Content Include="Views\DisasterMasters\Details.cshtml" />
@@ -373,21 +348,6 @@
     <Content Include="Views\DisasterTypes\Details.cshtml" />
     <Content Include="Views\DisasterTypes\Edit.cshtml" />
     <Content Include="Views\DisasterTypes\Index.cshtml" />
-    <Content Include="Views\Districts\Create.cshtml" />
-    <Content Include="Views\Districts\Delete.cshtml" />
-    <Content Include="Views\Districts\Details.cshtml" />
-    <Content Include="Views\Districts\Edit.cshtml" />
-    <Content Include="Views\Districts\Index.cshtml" />
-    <Content Include="Views\Provinces\Create.cshtml" />
-    <Content Include="Views\Provinces\Delete.cshtml" />
-    <Content Include="Views\Provinces\Details.cshtml" />
-    <Content Include="Views\Provinces\Edit.cshtml" />
-    <Content Include="Views\Provinces\Index.cshtml" />
-    <Content Include="Views\GSAreas\Create.cshtml" />
-    <Content Include="Views\GSAreas\Delete.cshtml" />
-    <Content Include="Views\GSAreas\Details.cshtml" />
-    <Content Include="Views\GSAreas\Edit.cshtml" />
-    <Content Include="Views\GSAreas\Index.cshtml" />
     <Content Include="Views\Companies\Create.cshtml" />
     <Content Include="Views\Companies\Delete.cshtml" />
     <Content Include="Views\Companies\Details.cshtml" />
@@ -418,10 +378,55 @@
     <Content Include="Views\DonorPeoples\Details.cshtml" />
     <Content Include="Views\DonorPeoples\Edit.cshtml" />
     <Content Include="Views\DonorPeoples\Index.cshtml" />
+    <Content Include="Views\Provinces\Create.cshtml" />
+    <Content Include="Views\Provinces\Delete.cshtml" />
+    <Content Include="Views\Provinces\Details.cshtml" />
+    <Content Include="Views\Provinces\Edit.cshtml" />
+    <Content Include="Views\Provinces\Index.cshtml" />
+    <Content Include="Views\ItemCategories\Create.cshtml" />
+    <Content Include="Views\ItemCategories\Delete.cshtml" />
+    <Content Include="Views\ItemCategories\Details.cshtml" />
+    <Content Include="Views\ItemCategories\Edit.cshtml" />
+    <Content Include="Views\ItemCategories\Index.cshtml" />
+    <Content Include="Views\ItemSubCategoryIs\Create.cshtml" />
+    <Content Include="Views\ItemSubCategoryIs\Delete.cshtml" />
+    <Content Include="Views\ItemSubCategoryIs\Details.cshtml" />
+    <Content Include="Views\ItemSubCategoryIs\Edit.cshtml" />
+    <Content Include="Views\ItemSubCategoryIs\Index.cshtml" />
+    <Content Include="Views\ItemSubCategoryIIs\Create.cshtml" />
+    <Content Include="Views\ItemSubCategoryIIs\Delete.cshtml" />
+    <Content Include="Views\ItemSubCategoryIIs\Details.cshtml" />
+    <Content Include="Views\ItemSubCategoryIIs\Edit.cshtml" />
+    <Content Include="Views\ItemSubCategoryIIs\Index.cshtml" />
+    <Content Include="Views\ItemSubCategoryIIIs\Create.cshtml" />
+    <Content Include="Views\ItemSubCategoryIIIs\Delete.cshtml" />
+    <Content Include="Views\ItemSubCategoryIIIs\Details.cshtml" />
+    <Content Include="Views\ItemSubCategoryIIIs\Edit.cshtml" />
+    <Content Include="Views\ItemSubCategoryIIIs\Index.cshtml" />
+    <Content Include="Views\AidItems\Create.cshtml" />
+    <Content Include="Views\AidItems\Delete.cshtml" />
+    <Content Include="Views\AidItems\Details.cshtml" />
+    <Content Include="Views\AidItems\Edit.cshtml" />
+    <Content Include="Views\AidItems\Index.cshtml" />
+    <Content Include="Views\Districts\Create.cshtml" />
+    <Content Include="Views\Districts\Delete.cshtml" />
+    <Content Include="Views\Districts\Details.cshtml" />
+    <Content Include="Views\Districts\Edit.cshtml" />
+    <Content Include="Views\Districts\Index.cshtml" />
+    <Content Include="Views\AGOffices\Create.cshtml" />
+    <Content Include="Views\AGOffices\Delete.cshtml" />
+    <Content Include="Views\AGOffices\Details.cshtml" />
+    <Content Include="Views\AGOffices\Edit.cshtml" />
+    <Content Include="Views\AGOffices\Index.cshtml" />
+    <Content Include="Views\GSAreas\Create.cshtml" />
+    <Content Include="Views\GSAreas\Delete.cshtml" />
+    <Content Include="Views\GSAreas\Details.cshtml" />
+    <Content Include="Views\GSAreas\Edit.cshtml" />
+    <Content Include="Views\GSAreas\Index.cshtml" />
+    <Content Include="Views\Donation\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="fonts\font-awesome-4.7.0\css\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

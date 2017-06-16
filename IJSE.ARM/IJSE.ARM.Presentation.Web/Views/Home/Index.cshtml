@@ -1,6 +1,28 @@
 ﻿@{
     ViewBag.Title = "Home Page";
+
+
+
+    if ( User.Identity.IsAuthenticated)
+    {
+
+        if ( User.IsInRole("2"))
+        {
+            Layout = "~/Views/Shared/_Layout_3.cshtml";
+        }
+        else
+        {
+            Layout = "~/Views/Shared/_Layout_2.cshtml";
+        }
+    }
+    else
+    {
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+
 }
+
+
 
 <div class="jumbotron">
     <h1>ASP.NET</h1>

@@ -55,6 +55,14 @@
     <Compile Include="Migrations\201706071028535_DBInit.Designer.cs">
       <DependentUpon>201706071028535_DBInit.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201706120457036_province-model-update.cs" />
+    <Compile Include="Migrations\201706120457036_province-model-update.Designer.cs">
+      <DependentUpon>201706120457036_province-model-update.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706131839391_person.cs" />
+    <Compile Include="Migrations\201706131839391_person.Designer.cs">
+      <DependentUpon>201706131839391_person.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -71,6 +79,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201706071028535_DBInit.resx">
       <DependentUpon>201706071028535_DBInit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706120457036_province-model-update.resx">
+      <DependentUpon>201706120457036_province-model-update.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706131839391_person.resx">
+      <DependentUpon>201706131839391_person.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

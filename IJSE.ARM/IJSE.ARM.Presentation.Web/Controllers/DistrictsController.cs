@@ -11,6 +11,7 @@ using IJSE.ARM.DataAccess.DAL;
 
 namespace IJSE.ARM.Presentation.Web.Controllers
 {
+    [Authorize]
     public class DistrictsController : Controller
     {
         private ARMContext db = new ARMContext();
@@ -37,16 +38,18 @@ namespace IJSE.ARM.Presentation.Web.Controllers
             return View(district);
         }
 
+   
         // GET: Districts/Create
         public ActionResult Create()
         {
-            ViewBag.ProvinceId = new SelectList(db.Province, "Id", "Id");
+            ViewBag.ProvinceId = new SelectList(db.Province, "Id", "Name");
             return View();
         }
 
         // POST: Districts/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Id,Name,ProvinceId")] District district)
@@ -58,7 +61,7 @@ namespace IJSE.ARM.Presentation.Web.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.ProvinceId = new SelectList(db.Province, "Id", "Id", district.ProvinceId);
+            ViewBag.ProvinceId = new SelectList(db.Province, "Id", "Name", district.ProvinceId);
             return View(district);
         }
 
@@ -74,7 +77,7 @@ namespace IJSE.ARM.Presentation.Web.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.ProvinceId = new SelectList(db.Province, "Id", "Id", district.ProvinceId);
+            ViewBag.ProvinceId = new SelectList(db.Province, "Id", "Name", district.ProvinceId);
             return View(district);
         }
 
@@ -91,7 +94,7 @@ namespace IJSE.ARM.Presentation.Web.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.ProvinceId = new SelectList(db.Province, "Id", "Id", district.ProvinceId);
+            ViewBag.ProvinceId = new SelectList(db.Province, "Id", "Name", district.ProvinceId);
             return View(district);
         }
 

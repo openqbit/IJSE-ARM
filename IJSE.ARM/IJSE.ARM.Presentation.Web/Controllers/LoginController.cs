@@ -28,6 +28,7 @@ namespace IJSE.ARM.Presentation.Web.Controllers
             //  _db.SystemUser.Where( u => u.Name)
             ClaimsIdentity identity = new ClaimsIdentity(new[] {
                 new Claim(ClaimTypes.Name, userName),
+                new Claim(ClaimTypes.NameIdentifier, userName),
                 new Claim(ClaimTypes.Role, userRole)
             },
             "ApplicationCookie");
